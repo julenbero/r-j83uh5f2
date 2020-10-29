@@ -2,18 +2,17 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
-	state = { counter: 0 };
+	state = { value: '' };
 
 	changeText(event) {
-		const { textLength } = event.target;
-		this.setState({ counter: textLength });
+		this.setState({ value: event.target.value });
 	}
 
 	render() {
 		return (
 			<div className="container">
-				<textarea rows="3" onChange={(event) => this.changeText(event)} />
-				<div className="counter">{this.state.counter}</div>
+				<textarea rows="3" onChange={(event) => this.changeText(event)} value={this.state.value} />
+				<div className="counter">{this.state.value.length}</div>
 			</div>
 		);
 	}
